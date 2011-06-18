@@ -1,0 +1,14 @@
+!!! 5
+%html
+  %head
+    %title #{@title}
+    %meta{:"http-equiv"=>"Content-Type", :content=>"text/html", :charset=>"utf-8"}
+    %link(rel='stylesheet' href='/site.css' type='text/css' media='screen' title='default style sheet')
+
+  %body
+    != yield
+    %footer
+      %p Develop by <a href="http://ongaeshi.me/">ongaeshi</a>.
+
+
+

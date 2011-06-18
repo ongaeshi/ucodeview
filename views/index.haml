@@ -1,32 +1,21 @@
-!!! 5
-%html
-  %head
-    %meta(charset='utf-8')
-    %title UcodeView - Src Code Highlight from URL.
-    %link(rel='stylesheet' href='/site.css' type='text/css' media='screen' title='default style sheet')
-  %body
-    #content
-      %header
-        %h1 UcodeView
-      #index
-        %div
-          UcodeViewの説明
-        %form(action='/view' method='get' name='view')
-          %p
-            #input
-              %textarea(type='q' name='q' placeholder="http://www.emacswiki.org/emacs/download/tortoise-svn.el" rows="9" cols="74")
-            %input(type='submit' value='OK')
-        %p
-          入力例:<br>
-          http://repo.or.cz/w/TortoiseGit.git/blob_plain/b56d7d297b615937e4a663a533349ede77e9cd9b:/src/TortoiseProc/AppUtils.h<br>
-          http://google-web-toolkit.googlecode.com/svn/trunk/dev/core/src/com/google/gwt/core/ext/BadPropertyValueException.java<br>
-          http://www.emacswiki.org/emacs/download/tortoise-svn.el<br>
-        %p
-          リンク:<br>
-          <a href="/view/?http://repo.or.cz/w/TortoiseGit.git/blob_plain/b56d7d297b615937e4a663a533349ede77e9cd9b:/src/TortoiseProc/AppUtils.h">TortoiseGit.git:src/TortoiseProc/AppUtils.h</a><br>
-          <a href="/view/?http://google-web-toolkit.googlecode.com/svn/trunk/dev/core/src/com/google/gwt/core/ext/BadPropertyValueException.java">google-web-toolkit:dev/core/src/com/google/gwt/core/ext/BadPropertyValueException.java</a><br>
-          <a href="/view/?http://www.emacswiki.org/emacs/download/tortoise-svn.el">emacswiki:tortoise-svn.el</a><br>
-      %footer
-        %p Develop by <a href="http://ongaeshi.me/">ongaeshi</a>.
-        
-    = haml(:_analytics, :layout => false)
+%header
+  %h1 UcodeView
+
+#content
+  %div
+    UcodeViewの説明
+  %form(action='/view' method='get' name='view')
+    %p
+      #input
+        %textarea(type='q' name='q' placeholder="http://www.emacswiki.org/emacs/download/tortoise-svn.el" rows="9" cols="74")
+      %input(type='submit' value='OK')
+  %p
+    入力例:<br>
+    http://repo.or.cz/w/TortoiseGit.git/blob_plain/b56d7d297b615937e4a663a533349ede77e9cd9b:/src/TortoiseProc/AppUtils.h<br>
+    http://google-web-toolkit.googlecode.com/svn/trunk/dev/core/src/com/google/gwt/core/ext/BadPropertyValueException.java<br>
+    http://www.emacswiki.org/emacs/download/tortoise-svn.el<br>
+  %p
+    リンク:<br>
+    <a href="/view/?http://repo.or.cz/w/TortoiseGit.git/blob_plain/b56d7d297b615937e4a663a533349ede77e9cd9b:/src/TortoiseProc/AppUtils.h">TortoiseGit.git:src/TortoiseProc/AppUtils.h</a><br>
+    <a href="/view/?http://google-web-toolkit.googlecode.com/svn/trunk/dev/core/src/com/google/gwt/core/ext/BadPropertyValueException.java">google-web-toolkit:dev/core/src/com/google/gwt/core/ext/BadPropertyValueException.java</a><br>
+    <a href="/view/?http://www.emacswiki.org/emacs/download/tortoise-svn.el">emacswiki:tortoise-svn.el</a><br>

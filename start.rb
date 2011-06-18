@@ -18,6 +18,11 @@ end
 # Sinatra !!
 
 configure do
+  # use HTML5 when generating HTML
+  set :haml, :format => :html5
+
+  ## for google analytics
+  # @analytics_token = 'UA-13136329-6'
 end
 
 before do
@@ -29,10 +34,12 @@ end
 # Routes
 
 get '/' do
+  @title = "UcodeView - Src Code Highlight from URL."
   haml :index
 end
 
 get '/view' do
+  @title = "AppUtils.h - UcodeView"
   haml :view
 end
 

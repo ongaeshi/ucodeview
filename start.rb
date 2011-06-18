@@ -17,6 +17,10 @@ class URLCodeViewer
     @urls = urls
   end
 
+  def title
+    @urls.map{|url|filename url}.join(", ")
+  end
+
   def to_html
     r = ""
     @urls.each do |url|
@@ -25,17 +29,21 @@ class URLCodeViewer
     r
   end
 
+  private
+  
+  def filename(url)
+    url.split('/')[-1]
+  end
+
   def to_html_url(url)
-    filename = url.split('/')[-1]
+    filename = filename(url)
     src = open(url){|f|f.read}
     <<EOF
 <h2>#{filename}</h2>
-<div>
 #{to_html_code(src, file_type(filename))}
-</div>
 EOF
   end
-  
+
   def to_html_code(code, kind)
     CodeRay.scan(code, kind).
       html(
@@ -79,8 +87,9 @@ get '/' do
 end
 
 get '/view' do
-  @title = "AppUtils.h - UcodeView"
-  cv = URLCodeViewer.new(['http://repo.or.cz/w/TortoiseGit.git/blob_plain/b56d7d297b615937e4a663a533349ede77e9cd9b:/src/TortoiseProc/AppUtils.h'])
+  cv = URLCodeViewer.new(params['q'].split)
+  @title = "#{cv.title} - UcodeView"
+  @code_titles = cv.title
   @codes = cv.to_html
   haml :view
 end

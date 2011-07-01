@@ -30,8 +30,7 @@ get '/*.css' do |path|
 end
 
 get '/view' do
-  urls = UcodeView::URLConverter.new(params['q'].split)
-  cv = UcodeView::URLCodeViewer.new(urls.to_a)
+  cv = UcodeView::URLCodeViewer.new(params['q'].split)
   @page_title = "#{cv.title}"
   @code_titles = cv.title
   @codes = cv.to_html

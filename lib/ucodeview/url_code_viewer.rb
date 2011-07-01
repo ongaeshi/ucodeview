@@ -9,6 +9,7 @@ require 'rubygems'
 require 'coderay'
 require 'coderay/helpers/file_type'
 require 'open-uri'
+require 'ucodeview/url_converter'
 
 module UcodeView
   class URLCodeViewer
@@ -40,7 +41,8 @@ module UcodeView
 
     def to_html_url(url)
       filename = filename(url)
-      src = open(url){|f|f.read}
+      rawurl = URLConverter.new([url]).to_a[0]
+      src = open(rawurl){|f|f.read}
       <<EOF
 <h2>#{filename} - #{link(url)}</h2>
 #{to_html_code(src, file_type(filename))}

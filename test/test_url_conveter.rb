@@ -29,5 +29,13 @@ module UcodeView
       urls = URLConverter.new ['https://github.com/bmizerany/sinatra/blob/work/lib/sinatra.rb']
       assert_equal ['https://raw.github.com/bmizerany/sinatra/work/lib/sinatra.rb'], urls.to_a
     end
+
+    def test_gist
+      urls = URLConverter.new ['https://gist.github.com/1058907']
+      assert_equal ['https://raw.github.com/gist/1058907'], urls.to_a
+
+      urls = URLConverter.new ['https://gist.github.com/1058907#b.hpp']
+      assert_equal ['https://raw.github.com/gist/1058907/b.hpp'], urls.to_a
+    end
   end
 end

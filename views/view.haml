@@ -1,3 +1,11 @@
+%section
+  %form(action='/view' method='get' name='view')
+    %p
+      #input
+        %textarea(type='q' name='q' placeholder="http://www.emacswiki.org/emacs/download/tortoise-svn.el" rows="5" cols="90")
+          #{@textarea_value}
+      %input(type='submit' value='OK')
+
 ~ @codes
   
   

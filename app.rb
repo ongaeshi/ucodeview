@@ -35,6 +35,7 @@ get '/view' do
   @page_title = "#{cv.title}"
   @code_titles = cv.title
   @codes = cv.to_html
+  @textarea_value = params['q'].split.join("\r") # ??
   haml :view
 end
 

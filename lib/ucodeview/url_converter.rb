@@ -27,8 +27,7 @@ module UcodeView
       r = r.gsub(%r|https://github.com/(.*)/blob/(.*)|,
                  'https://raw.github.com/\1/\2')
 
-      r = r.gsub(%r|https://gist.github.com/(.*)|, 'https://raw.github.com/gist')
-      r += '/' + $1.sub(/#/, "/") if ($1)
+      r = r.gsub(%r|https://gist.github.com/(.*)|, 'https://raw.github.com/gist/\1')
 
       r
     end

@@ -35,7 +35,7 @@ module UcodeView
       assert_equal ['https://raw.github.com/gist/1058907'], urls.to_a
 
       urls = URLConverter.new ['https://gist.github.com/1058907#b.hpp']
-      assert_equal ['https://raw.github.com/gist/1058907/b.hpp'], urls.to_a
+      assert_equal ['https://raw.github.com/gist/1058907#b.hpp'], urls.to_a
     end
   end
 end

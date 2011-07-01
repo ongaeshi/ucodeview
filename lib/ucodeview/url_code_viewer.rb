@@ -34,11 +34,15 @@ module UcodeView
       url.split('/')[-1]
     end
 
+    def link(url)
+      "<a href=\"#{url}\">src</a>"
+    end
+
     def to_html_url(url)
       filename = filename(url)
       src = open(url){|f|f.read}
       <<EOF
-<h2>#{filename}</h2>
+<h2>#{filename} - #{link(url)}</h2>
 #{to_html_code(src, file_type(filename))}
 EOF
     end

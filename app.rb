@@ -13,6 +13,7 @@ require 'sass'
 $LOAD_PATH.unshift 'lib'
 require 'haml/filters/blockcode'
 require 'ucodeview/url_code_viewer'
+require 'ucodeview/url_converter'
 
 set :haml, :format => :html5
 
@@ -29,7 +30,8 @@ get '/*.css' do |path|
 end
 
 get '/view' do
-  cv = UcodeView::URLCodeViewer.new(params['q'].split)
+  urls = UcodeView::URLConverter.new(params['q'].split)
+  cv = UcodeView::URLCodeViewer.new(urls.to_a)
   @page_title = "#{cv.title}"
   @code_titles = cv.title
   @codes = cv.to_html
